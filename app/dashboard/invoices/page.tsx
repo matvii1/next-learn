@@ -10,13 +10,13 @@ import { Suspense } from 'react';
 type Props = {
   searchParams?: {
     query?: string;
-    currentPage?: number;
+    page?: number;
   };
 };
 
 export default async function Page({ searchParams }: Props) {
   const query = searchParams?.query || '';
-  const currentPage = Number(searchParams?.currentPage) || 1;
+  const currentPage = Number(searchParams?.page) || 1;
   const totalPages = await fetchInvoicesPages(query);
 
   return (
